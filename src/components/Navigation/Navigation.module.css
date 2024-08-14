@@ -1,0 +1,8 @@
+.active {
+  color: #f4c550;
+}
+
+.link:hover {
+  color: #f4c550;
+  transition: color 200ms linear;
+}
