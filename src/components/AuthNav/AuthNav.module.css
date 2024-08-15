@@ -17,8 +17,15 @@
   gap: 8px;
 }
 
+.iconLogIn {
+  stroke: var(--main-color);
+  fill: transparent;
+  width: 20px;
+  height: 20px;
+}
+
 .btnRegister {
-  color: #fff;
+  color: var(--main-white-color);
   background-color: var(--black-color);
   border-radius: 12px;
   width: 166px;

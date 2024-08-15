@@ -5,6 +5,8 @@
   --black-color: #121417;
   --gray-color: #8a8a89;
   --gray-background-color: #f8f8f8;
+  --main-white-color: #fff;
+  --statistic-text-color: rgba(18, 20, 23, 0.7);
 
   /* yellow theme */
   --main-color: #f4c550;
@@ -13,6 +15,7 @@
   --light-iMac-gradient: #eeb055;
   --dark-apple-gradient: #e7c885;
   --light-apple-gradient: #fbe9ba;
+  --background-image: url(./assets/border/border-yellow-320.svg);
 
   /* green theme */
   --main-color: #9fbaae;
@@ -21,6 +24,7 @@
   --light-iMac-gradient: #295761;
   --dark-apple-gradient: #9eb9ad;
   --light-apple-gradient: #cbded3;
+  --background-image: url(./assets/border/border-green-320.svg);
 
   /* blue theme */
   --main-color: #9fb7ce;
@@ -29,22 +33,63 @@
   --light-iMac-gradient: #314b6e;
   --dark-apple-gradient: #9fb6cd;
   --light-apple-gradient: #bfd6ea;
+  --background-image: url(./assets/border/border-blue-320.svg);
 
-  /* brown theme */
+  /* red theme */
   --main-color: #e0a39a;
   --light-color: #f2c0bd;
   --dark-iMac-gradient: #982a27;
   --light-iMac-gradient: #b03f3e;
   --dark-apple-gradient: #dfa299;
   --light-apple-gradient: #f1c0bd;
+  --background-image: url(./assets/border/border-red-320.svg);
 
-  /* beige theme */
+  /* brown theme */
   --main-color: #e0a39a;
   --light-color: #f4c8ba;
   --dark-iMac-gradient: #ca5b38;
   --light-iMac-gradient: #e17650;
   --dark-apple-gradient: #efa98c;
   --light-apple-gradient: #f3c8ba;
+  --background-image: url(./assets/border/border-brown-320.svg);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  :root {
+    /* yellow theme */
+    --background-image: url(./assets/border/border-yellow-768.svg);
+
+    /* green theme */
+    --background-image: url(./assets/border/border-green-768.svg);
+
+    /* blue theme */
+    --background-image: url(./assets/border/border-blue-768.svg);
+
+    /* red theme */
+    --background-image: url(./assets/border/border-red-768.svg);
+
+    /* brown theme */
+    --background-image: url(./assets/border/border-brown-768.svg);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  :root {
+    /* yellow theme */
+    --background-image: url(./assets/border/border-yellow-1440.svg);
+
+    /* green theme */
+    --background-image: url(./assets/border/border-green-1440.svg);
+
+    /* blue theme */
+    --background-image: url(./assets/border/border-blue-1440.svg);
+
+    /* red theme */
+    --background-image: url(./assets/border/border-red-1440.svg);
+
+    /* brown theme */
+    --background-image: url(./assets/border/border-brown-1440.svg);
+  }
 }
 
 * {
@@ -65,7 +110,7 @@ body {
   font-weight: 400;
 
   color: var(--black-color);
-  background-color: #fff;
+  background-color: var(--main-white-color);
   padding: 0;
   margin: 0;
 }

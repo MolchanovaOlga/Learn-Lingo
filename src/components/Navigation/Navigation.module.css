@@ -7,10 +7,10 @@
 }
 
 .active {
-  color: #f4c550;
+  color: var(--main-color);
 }
 
 .link:hover {
-  color: #f4c550;
+  color: var(--main-color);
   transition: color 200ms linear;
 }
