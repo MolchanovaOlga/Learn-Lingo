@@ -1,0 +1,28 @@
+.authNavContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-left: 32px;
+}
+
+.btnLogIn {
+  background-color: transparent;
+  font-weight: 700;
+  line-height: 1.25;
+  min-width: 73px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btnRegister {
+  color: #fff;
+  background-color: var(--black-color);
+  border-radius: 12px;
+  width: 166px;
+  height: 48px;
+  font-weight: 700;
+  line-height: 1.25;
+}

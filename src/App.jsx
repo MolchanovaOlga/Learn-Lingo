@@ -1,9 +1,8 @@
 import { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import Navigation from "./components/Navigation/Navigation";
+import Header from "./components/Header/Header";
 import Container from "./components/Container/Container";
-import "./App.css";
 
 const HomePage = lazy(() => import("./pages/Home"));
 const TeachersPage = lazy(() => import("./pages/Teachers"));
@@ -13,7 +12,7 @@ const NotFoundPage = lazy(() => import("./pages/NotFound"));
 function App() {
   return (
     <Container>
-      <Navigation />
+      <Header />
       <main>
         <Suspense>
           <Routes>

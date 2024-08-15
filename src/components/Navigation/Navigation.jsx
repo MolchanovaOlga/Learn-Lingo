@@ -8,19 +8,17 @@ const Navigation = () => {
     return clsx(css.link, isActive && css.active);
   };
   return (
-    <header className={css.header}>
-      <nav className={css.nav}>
-        <NavLink to="/" className={buildLinkClass}>
-          Home
-        </NavLink>
-        <NavLink to="/teachers" className={buildLinkClass}>
-          Teachers
-        </NavLink>
-        <NavLink to="/favorites" className={buildLinkClass}>
-          Favorites
-        </NavLink>
-      </nav>
-    </header>
+    <nav className={css.nav}>
+      <NavLink to="/" className={buildLinkClass}>
+        Home
+      </NavLink>
+      <NavLink to="/teachers" className={buildLinkClass}>
+        Teachers
+      </NavLink>
+      <NavLink to="/favorites" className={buildLinkClass}>
+        Favorites
+      </NavLink>
+    </nav>
   );
 };
 

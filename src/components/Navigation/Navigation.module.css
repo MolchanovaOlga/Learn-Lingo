@@ -1,3 +1,11 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  line-height: 1.25;
+}
+
 .active {
   color: #f4c550;
 }
