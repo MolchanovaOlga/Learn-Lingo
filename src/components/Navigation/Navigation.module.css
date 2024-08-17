@@ -1,5 +1,5 @@
 .nav {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   gap: 28px;
@@ -11,6 +11,24 @@
 }
 
 .link:hover {
-  color: var(--main-color);
+  color: var(--hover-color);
   transition: color 200ms linear;
+}
+
+.btnMenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  fill: var(--black-color);
+}
+
+@media screen and (min-width: 768px) {
+  .nav {
+    display: flex;
+  }
+
+  .btnMenu {
+    display: none;
+  }
 }

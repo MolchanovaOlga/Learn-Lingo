@@ -56,6 +56,11 @@
   line-height: 1.6;
 }
 
+.btn:hover {
+  background-color: var(--hover-color);
+  transition: background-color 200ms linear;
+}
+
 /* ------------------------------------image------------------------------------ */
 
 .imgContainer {

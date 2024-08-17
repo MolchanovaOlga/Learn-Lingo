@@ -11,6 +11,7 @@
   /* yellow theme */
   --main-color: #f4c550;
   --light-color: #fbe9ba;
+  --hover-color: #ffdc86;
   --dark-iMac-gradient: #d08f38;
   --light-iMac-gradient: #eeb055;
   --dark-apple-gradient: #e7c885;
@@ -20,6 +21,7 @@
   /* green theme */
   --main-color: #9fbaae;
   --light-color: #cbded3;
+  --hover-color: #a2d7bf;
   --dark-iMac-gradient: #183e49;
   --light-iMac-gradient: #295761;
   --dark-apple-gradient: #9eb9ad;
@@ -29,6 +31,7 @@
   /* blue theme */
   --main-color: #9fb7ce;
   --light-color: #bfd6ea;
+  --hover-color: #99c1e8;
   --dark-iMac-gradient: #1f385a;
   --light-iMac-gradient: #314b6e;
   --dark-apple-gradient: #9fb6cd;
@@ -38,6 +41,7 @@
   /* red theme */
   --main-color: #e0a39a;
   --light-color: #f2c0bd;
+  --hover-color: #fbab9e;
   --dark-iMac-gradient: #982a27;
   --light-iMac-gradient: #b03f3e;
   --dark-apple-gradient: #dfa299;
@@ -47,6 +51,7 @@
   /* brown theme */
   --main-color: #f0aa8d;
   --light-color: #f4c8ba;
+  --hover-color: #ffa67f;
   --dark-iMac-gradient: #ca5b38;
   --light-iMac-gradient: #e17650;
   --dark-apple-gradient: #efa98c;

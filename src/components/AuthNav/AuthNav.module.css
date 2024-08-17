@@ -1,5 +1,5 @@
 .authNavContainer {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   gap: 16px;
@@ -17,6 +17,11 @@
   gap: 8px;
 }
 
+.btnLogIn:hover {
+  color: var(--hover-color);
+  transition: color 200ms linear;
+}
+
 .iconLogIn {
   stroke: var(--main-color);
   fill: transparent;
@@ -24,12 +29,49 @@
   height: 20px;
 }
 
+.btnLogIn:hover .iconLogIn {
+  stroke: var(--hover-color);
+  transition: stroke 200ms linear;
+}
+
 .btnRegister {
   color: var(--main-white-color);
   background-color: var(--black-color);
   border-radius: 12px;
-  width: 166px;
+  width: 120px;
   height: 48px;
   font-weight: 700;
   line-height: 1.25;
+}
+
+.btnRegister:hover {
+  background-color: var(--hover-color);
+  transition: background-color 200ms linear;
+}
+
+.btnAuthNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  margin-left: 24px;
+}
+
+.iconThreeDots {
+  fill: var(--black-color);
+  height: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .authNavContainer {
+    display: flex;
+  }
+
+  .btnAuthNav {
+    display: none;
+  }
+
+  .btnRegister {
+    width: 166px;
+  }
 }

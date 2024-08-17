@@ -1,5 +1,5 @@
 .container {
-  padding: 20px 64px 32px 64px;
+  padding: 20px 0 32px 0;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1439px) {
