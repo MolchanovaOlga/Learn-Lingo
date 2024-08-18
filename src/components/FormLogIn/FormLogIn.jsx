@@ -1,7 +1,9 @@
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useState } from "react";
 
+import sprite from "../../assets/sprite.svg";
 import css from "./FormLogIn.module.css";
 
 const schema = yup
@@ -26,6 +28,8 @@ const FormLogIn = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
+
+  const [isVisible, setIsVisible] = useState(false);
 
   const onSubmit = (data) => {
     console.log(data);
@@ -56,7 +60,7 @@ const FormLogIn = () => {
           <input
             className={css.input}
             name="password"
-            type="password"
+            type={isVisible ? "text" : "password"}
             placeholder="Password"
             {...register("password", {
               required: true,
@@ -71,6 +75,18 @@ const FormLogIn = () => {
               </span>
             </div>
           )}
+
+          <button
+            type="button"
+            className={css.eyeBtn}
+            onClick={() => setIsVisible(!isVisible)}
+          >
+            <svg className={css.iconEyePassword} width="20" height="20">
+              <use
+                href={`${sprite}#icon-${isVisible ? "eye" : "close-eye"}`}
+              ></use>
+            </svg>
+          </button>
         </label>
       </div>
       <button className={css.logInBtn} type="submit">

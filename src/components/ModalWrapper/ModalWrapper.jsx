@@ -17,7 +17,7 @@ const ModalWrapper = ({ children, modalIsOpen, onCloseModal }) => {
       borderRadius: "15px",
     },
     overlay: {
-      backgroundColor: "rgba(47, 47, 47, 0.2)",
+      backgroundColor: "rgba(47, 47, 47, 0.3)",
     },
   };
   return (

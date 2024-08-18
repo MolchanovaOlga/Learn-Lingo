@@ -80,6 +80,17 @@
   color: red;
 }
 
+.eyeBtn {
+  background-color: transparent;
+  position: absolute;
+  right: 0;
+  margin-right: 18px;
+}
+
+.iconEyePassword {
+  stroke: var(--black-color);
+}
+
 @media screen and (min-width: 768px) and (max-width: 1439px) {
   .form {
     width: 400px;
