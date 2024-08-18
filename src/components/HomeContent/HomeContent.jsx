@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import img1x from "../../assets/girl-img-1x.png";
 import img2x from "../../assets/girl-img-2x.png";
 import imgMob1x from "../../assets/girl-img-mob-1x.png";
@@ -18,9 +20,11 @@ const HomeContent = () => {
             Elevate your language proficiency to new heights by connecting with
             highly qualified and experienced tutors.
           </p>
-          <button type="button" className={css.btn}>
-            Get started
-          </button>
+          <Link to="/teachers">
+            <button type="button" className={css.btn}>
+              Get started
+            </button>
+          </Link>
         </div>
         <div className={css.imgContainer}>
           <div className={css.container}>
