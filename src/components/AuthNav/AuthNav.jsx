@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import ModalLoginIn from "../ModalLoginIn/ModalLoginIn";
+import ModalRegistration from "../ModalRegistration/ModalRegistration";
 import scrollController from "../../services/noScroll";
 import { closeByEsc } from "../../services/functions";
 import css from "./AuthNav.module.css";
@@ -9,6 +10,17 @@ import sprite from "../../assets/sprite.svg";
 const AuthNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLogInOpen, setIsLogInOpen] = useState(false);
+  const [isRegistrOpen, setIsRegistrOpen] = useState(false);
+
+  function openRegistrModal() {
+    setIsRegistrOpen(true);
+    scrollController.disabledScroll();
+  }
+
+  function closeRegistrModal() {
+    setIsRegistrOpen(false);
+    scrollController.enabledScroll();
+  }
 
   function openLogInModal() {
     setIsLogInOpen(true);
@@ -35,6 +47,13 @@ const AuthNav = () => {
   }, []);
   return (
     <>
+      {isRegistrOpen && (
+        <ModalRegistration
+          onCloseModal={closeRegistrModal}
+          isOpen={isRegistrOpen}
+        />
+      )}
+
       {isLogInOpen && (
         <ModalLoginIn onCloseModal={closeLogInModal} isOpen={isLogInOpen} />
       )}
@@ -46,7 +65,11 @@ const AuthNav = () => {
           </svg>
           Log In
         </button>
-        <button type="button" className={css.btnRegister}>
+        <button
+          type="button"
+          className={css.btnRegister}
+          onClick={openRegistrModal}
+        >
           Registration
         </button>
       </div>
@@ -75,7 +98,15 @@ const AuthNav = () => {
               </svg>
               Log In
             </button>
-            <button type="button" className={css.btnRegister}>
+            <button
+              type="button"
+              className={css.btnRegister}
+              onClick={() => {
+                openRegistrModal();
+                closeMenu();
+                scrollController.disabledScroll();
+              }}
+            >
               Registration
             </button>
           </div>

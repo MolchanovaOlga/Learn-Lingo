@@ -48,7 +48,7 @@ input[type="password"]::-ms-clear {
   display: none;
 }
 
-.logInBtn {
+.registrBtn {
   width: 100%;
   height: 60px;
   display: flex;
