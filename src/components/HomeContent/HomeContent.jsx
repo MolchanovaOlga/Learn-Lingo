@@ -12,7 +12,7 @@ const HomeContent = () => {
       <div className={css.contentContainer}>
         <div className={css.textContainer}>
           <h1 className={css.title}>
-            Unlock your potential with the best{" "}
+            Unlock your potential with the best
             <span className={css.span}>language</span> tutors
           </h1>
           <p className={css.text}>

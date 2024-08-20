@@ -46,7 +46,6 @@
 }
 
 .btn {
-  width: 267px;
   height: 60px;
   color: var(--black-color);
   background-color: var(--main-color);
@@ -54,6 +53,7 @@
   font-size: 18px;
   font-weight: 700;
   line-height: 1.6;
+  padding: 16px 88px;
 }
 
 .btn:hover {

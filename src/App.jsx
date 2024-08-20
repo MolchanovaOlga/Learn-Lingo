@@ -1,6 +1,7 @@
 import { Suspense, lazy } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 
+import css from "./App.module.css";
 import Header from "./components/Header/Header";
 import Container from "./components/Container/Container";
 
@@ -10,20 +11,32 @@ const FavoritesPage = lazy(() => import("./pages/Favorites"));
 const NotFoundPage = lazy(() => import("./pages/NotFound"));
 
 function App() {
+  const location = useLocation();
+
+  const getBackgroundClass = () => {
+    if (location.pathname === "/") {
+      return css.background;
+    } else {
+      return css.backgroundTheachers;
+    }
+  };
+
   return (
-    <Container>
-      <Header />
-      <main>
-        <Suspense>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/teachers" element={<TeachersPage />} />
-            <Route path="/favorites" element={<FavoritesPage />} />
-            <Route path="*" element={<NotFoundPage replace />} />
-          </Routes>
-        </Suspense>
-      </main>
-    </Container>
+    <div className={getBackgroundClass()}>
+      <Container>
+        <Header />
+        <main>
+          <Suspense>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/teachers" element={<TeachersPage />} />
+              <Route path="/favorites" element={<FavoritesPage />} />
+              <Route path="*" element={<NotFoundPage replace />} />
+            </Routes>
+          </Suspense>
+        </main>
+      </Container>
+    </div>
   );
 }
 

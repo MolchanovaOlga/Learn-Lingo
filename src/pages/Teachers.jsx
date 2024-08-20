@@ -1,7 +1,11 @@
-import React from "react";
+import TheachersContent from "../components/TheachersContent/TheachersContent";
 
 const Teachers = () => {
-  return <div>Teachers</div>;
+  return (
+    <div>
+      <TheachersContent />
+    </div>
+  );
 };
 
 export default Teachers;
