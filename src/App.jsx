@@ -14,10 +14,13 @@ function App() {
   const location = useLocation();
 
   const getBackgroundClass = () => {
-    if (location.pathname === "/") {
-      return css.background;
-    } else {
+    if (
+      location.pathname === "/teachers" ||
+      location.pathname === "/favorites"
+    ) {
       return css.backgroundTheachers;
+    } else {
+      return css.background;
     }
   };
 

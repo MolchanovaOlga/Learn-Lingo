@@ -1,9 +1,9 @@
-import TheachersContent from "../components/TheachersContent/TheachersContent";
+import TheachersPageContent from "../components/TheachersPageContent/TheachersPageContent";
 
 const Teachers = () => {
   return (
     <div>
-      <TheachersContent />
+      <TheachersPageContent />
     </div>
   );
 };

@@ -5,3 +5,10 @@
   justify-content: center;
   gap: 64px;
 }
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+}

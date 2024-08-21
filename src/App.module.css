@@ -1,7 +1,9 @@
 .background {
   background-color: var(--main-white-color);
+  height: 100%;
 }
 
 .backgroundTheachers {
   background-color: var(--gray-background-color);
+  height: 100vh;
 }

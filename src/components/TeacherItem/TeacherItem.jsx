@@ -19,40 +19,6 @@ const TeacherItem = () => {
         <div className={css.greenCircle}></div>
       </div>
       <div className={css.contentContainer}>
-        {/* <div className={css.topStringMobTablContainer}>
-          <h2 className={css.titleMobTabl}>Jane Smith</h2>
-          <button className={css.heartBtn}>
-            <svg className={css.iconHeart} width="26" height="26">
-              <use href={`${sprite}#icon-heart`}></use>
-            </svg>
-          </button>
-        </div> */}
-        {/* <div className={css.LanguagesMobTablContainer}>
-          <h3 className={css.detailsTitle}>Languages</h3>
-          <div className={css.statisticMobTablContainer}>
-            <div className={css.lessonsOnlineContainer}>
-              <svg className={css.iconBook} width="16" height="16">
-                <use href={`${sprite}#icon-book-open`}></use>
-              </svg>
-              <p className={css.statisticText}>Lessons online</p>
-            </div>
-            <div className={css.lessonsDoneContainer}>
-              <p className={css.statisticText}>Lessons done: 1098</p>
-            </div>
-            <div className={css.ratingContainer}>
-              <svg className={css.iconStar} width="16" height="16">
-                <use href={`${sprite}#icon-star`}></use>
-              </svg>
-              <p className={css.statisticText}>Rating: 4.8</p>
-            </div>
-            <div className={css.priceContainer}>
-              <p className={css.statisticText}>
-                Price / 1 hour: <span className={css.selectPrice}>30$</span>
-              </p>
-            </div>
-          </div>
-        </div> */}
-
         <div className={css.topString}>
           <div className={css.languagesContainer}>
             <h3 className={css.detailsTitle}>Languages</h3>
