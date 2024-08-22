@@ -9,7 +9,18 @@
   --statistic-text-color: rgba(18, 20, 23, 0.7);
   --green-color: #38cd3e;
 
-  /* yellow theme */
+  /* brown theme */
+  --main-color: #f0aa8d;
+  --light-color: #f4c8ba;
+  --hover-color: #ffa67f;
+  --dark-iMac-gradient: #ca5b38;
+  --light-iMac-gradient: #e17650;
+  --dark-apple-gradient: #efa98c;
+  --light-apple-gradient: #f3c8ba;
+  --background-image: url(./assets/border/border-brown-320.svg);
+}
+
+[data-theme="Yellow"] {
   --main-color: #f4c550;
   --light-color: #fbe9ba;
   --hover-color: #ffdc86;
@@ -18,8 +29,9 @@
   --dark-apple-gradient: #e7c885;
   --light-apple-gradient: #fbe9ba;
   --background-image: url(./assets/border/border-yellow-320.svg);
+}
 
-  /* green theme */
+[data-theme="Green"] {
   --main-color: #9fbaae;
   --light-color: #cbded3;
   --hover-color: #a2d7bf;
@@ -28,8 +40,9 @@
   --dark-apple-gradient: #9eb9ad;
   --light-apple-gradient: #cbded3;
   --background-image: url(./assets/border/border-green-320.svg);
+}
 
-  /* blue theme */
+[data-theme="Blue"] {
   --main-color: #9fb7ce;
   --light-color: #bfd6ea;
   --hover-color: #99c1e8;
@@ -38,8 +51,9 @@
   --dark-apple-gradient: #9fb6cd;
   --light-apple-gradient: #bfd6ea;
   --background-image: url(./assets/border/border-blue-320.svg);
+}
 
-  /* red theme */
+[data-theme="Red"] {
   --main-color: #e0a39a;
   --light-color: #f2c0bd;
   --hover-color: #fbab9e;
@@ -48,8 +62,9 @@
   --dark-apple-gradient: #dfa299;
   --light-apple-gradient: #f1c0bd;
   --background-image: url(./assets/border/border-red-320.svg);
+}
 
-  /* brown theme */
+[data-theme="Brown"] {
   --main-color: #f0aa8d;
   --light-color: #f4c8ba;
   --hover-color: #ffa67f;
@@ -62,38 +77,54 @@
 
 @media screen and (min-width: 768px) and (max-width: 1439px) {
   :root {
-    /* yellow theme */
-    --background-image: url(./assets/border/border-yellow-768.svg);
-
-    /* green theme */
-    --background-image: url(./assets/border/border-green-768.svg);
-
-    /* blue theme */
-    --background-image: url(./assets/border/border-blue-768.svg);
-
-    /* red theme */
-    --background-image: url(./assets/border/border-red-768.svg);
-
     /* brown theme */
+    --background-image: url(./assets/border/border-brown-768.svg);
+  }
+
+  [data-theme="Yellow"] {
+    --background-image: url(./assets/border/border-yellow-768.svg);
+  }
+
+  [data-theme="Green"] {
+    --background-image: url(./assets/border/border-green-768.svg);
+  }
+
+  [data-theme="Blue"] {
+    --background-image: url(./assets/border/border-blue-768.svg);
+  }
+
+  [data-theme="Red"] {
+    --background-image: url(./assets/border/border-red-768.svg);
+  }
+
+  [data-theme="Brown"] {
     --background-image: url(./assets/border/border-brown-768.svg);
   }
 }
 
 @media screen and (min-width: 1440px) {
   :root {
-    /* yellow theme */
-    --background-image: url(./assets/border/border-yellow-1440.svg);
-
-    /* green theme */
-    --background-image: url(./assets/border/border-green-1440.svg);
-
-    /* blue theme */
-    --background-image: url(./assets/border/border-blue-1440.svg);
-
-    /* red theme */
-    --background-image: url(./assets/border/border-red-1440.svg);
-
     /* brown theme */
+    --background-image: url(./assets/border/border-brown-1440.svg);
+  }
+
+  [data-theme="Yellow"] {
+    --background-image: url(./assets/border/border-yellow-1440.svg);
+  }
+
+  [data-theme="Green"] {
+    --background-image: url(./assets/border/border-green-1440.svg);
+  }
+
+  [data-theme="Blue"] {
+    --background-image: url(./assets/border/border-blue-1440.svg);
+  }
+
+  [data-theme="Red"] {
+    --background-image: url(./assets/border/border-red-1440.svg);
+  }
+
+  [data-theme="Brown"] {
     --background-image: url(./assets/border/border-brown-1440.svg);
   }
 }

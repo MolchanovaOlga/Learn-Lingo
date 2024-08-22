@@ -1,8 +1,8 @@
 import { Suspense, lazy } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 
+import Layout from "./components/Layout/Layout";
 import css from "./App.module.css";
-import Header from "./components/Header/Header";
 import Container from "./components/Container/Container";
 
 const HomePage = lazy(() => import("./pages/Home"));
@@ -27,17 +27,18 @@ function App() {
   return (
     <div className={getBackgroundClass()}>
       <Container>
-        <Header />
-        <main>
-          <Suspense>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/teachers" element={<TeachersPage />} />
-              <Route path="/favorites" element={<FavoritesPage />} />
-              <Route path="*" element={<NotFoundPage replace />} />
-            </Routes>
-          </Suspense>
-        </main>
+        <Suspense>
+          <Layout>
+            <main>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/teachers" element={<TeachersPage />} />
+                <Route path="/favorites" element={<FavoritesPage />} />
+                <Route path="*" element={<NotFoundPage replace />} />
+              </Routes>
+            </main>
+          </Layout>
+        </Suspense>
       </Container>
     </div>
   );

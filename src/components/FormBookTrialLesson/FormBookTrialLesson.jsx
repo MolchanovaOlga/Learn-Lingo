@@ -61,73 +61,76 @@ const FormBookTrialLesson = () => {
         <h3 className={css.formTitle}>
           What is your main reason for learning English?
         </h3>
-        <ul className={css.radioList}>
-          <li className={css.radioItem}>
-            <label className={css.radioLabel}>
-              <input
-                className={css.radioInput}
-                type="radio"
-                name="radio"
-                value="Career and business"
-                {...register("radio")}
-              />
-              <p className={css.radioText}>Career and business</p>
-            </label>
-          </li>
-          <li className={css.radioItem}>
-            <label className={css.radioLabel}>
-              <input
-                className={css.radioInput}
-                type="radio"
-                name="radio"
-                value="Lesson for kids"
-                {...register("radio")}
-              />
-              <p className={css.radioText}>Lesson for kids</p>
-            </label>
-          </li>
-          <li className={css.radioItem}>
-            <label className={css.radioLabel}>
-              <input
-                className={css.radioInput}
-                type="radio"
-                name="radio"
-                value="Living abroad"
-                {...register("radio")}
-              />
-              <p className={css.radioText}>Living abroad</p>
-            </label>
-          </li>
-          <li className={css.radioItem}>
-            <label className={css.radioLabel}>
-              <input
-                className={css.radioInput}
-                type="radio"
-                name="radio"
-                value="Exams and coursework"
-                {...register("radio")}
-              />
-              <p className={css.radioText}>Exams and coursework</p>
-            </label>
-          </li>
-          <li className={css.radioItem}>
-            <label className={css.radioLabel}>
-              <input
-                className={css.radioInput}
-                type="radio"
-                name="radio"
-                value="Culture, travel or hobby"
-                {...register("radio")}
-              />
-              <p className={css.radioText}>Culture, travel or hobby</p>
-            </label>
-          </li>
+        <div className={css.radioContainer}>
+          <ul className={css.radioList}>
+            <li className={css.radioItem}>
+              <label className={css.radioLabel}>
+                <input
+                  className={css.radioInput}
+                  type="radio"
+                  name="radio"
+                  value="Career and business"
+                  {...register("radio")}
+                />
+                <p className={css.radioText}>Career and business</p>
+              </label>
+            </li>
+            <li className={css.radioItem}>
+              <label className={css.radioLabel}>
+                <input
+                  className={css.radioInput}
+                  type="radio"
+                  name="radio"
+                  value="Lesson for kids"
+                  {...register("radio")}
+                />
+                <p className={css.radioText}>Lesson for kids</p>
+              </label>
+            </li>
+            <li className={css.radioItem}>
+              <label className={css.radioLabel}>
+                <input
+                  className={css.radioInput}
+                  type="radio"
+                  name="radio"
+                  value="Living abroad"
+                  {...register("radio")}
+                />
+                <p className={css.radioText}>Living abroad</p>
+              </label>
+            </li>
+            <li className={css.radioItem}>
+              <label className={css.radioLabel}>
+                <input
+                  className={css.radioInput}
+                  type="radio"
+                  name="radio"
+                  value="Exams and coursework"
+                  {...register("radio")}
+                />
+                <p className={css.radioText}>Exams and coursework</p>
+              </label>
+            </li>
+            <li className={css.radioItem}>
+              <label className={css.radioLabel}>
+                <input
+                  className={css.radioInput}
+                  type="radio"
+                  name="radio"
+                  value="Culture, travel or hobby"
+                  {...register("radio")}
+                />
+                <p className={css.radioText}>Culture, travel or hobby</p>
+              </label>
+            </li>
+          </ul>
           {errors.radio && (
             <div className={css.errorContainer}>
               <span className={css.errorMessage}>{errors.radio.message}</span>
             </div>
           )}
-        </ul>
+        </div>
+
         <div className={css.formContainer}>
           <label className={css.label}>
             <input

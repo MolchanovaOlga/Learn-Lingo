@@ -1,5 +1,6 @@
 import Navigation from "../Navigation/Navigation";
 import Logo from "../Logo/Logo";
+import ThemeChanger from "../ThemeChanger/ThemeChanger";
 import AuthNav from "../AuthNav/AuthNav";
 import css from "./Header.module.css";
 
@@ -8,6 +9,7 @@ const Header = () => {
     <header className={css.header}>
       <Logo />
       <Navigation />
+      <ThemeChanger />
       <AuthNav />
     </header>
   );

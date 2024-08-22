@@ -63,12 +63,15 @@
   margin-bottom: 20px;
 }
 
+.radioContainer {
+  position: relative;
+}
+
 .radioList {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 16px;
-  position: relative;
 }
 
 .radioLabel {
