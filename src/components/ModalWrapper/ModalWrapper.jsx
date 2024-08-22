@@ -4,15 +4,21 @@ import sprite from "../../assets/sprite.svg";
 
 Modal.setAppElement("#root");
 
-const ModalWrapper = ({ children, modalIsOpen, onCloseModal }) => {
+const ModalWrapper = ({
+  children,
+  modalIsOpen,
+  onCloseModal,
+  top = "50%",
+  transform = "translate(-50%, -50%)",
+}) => {
   const customStyles = {
     content: {
-      top: "50%",
+      top: top,
       left: "50%",
       right: "auto",
       bottom: "auto",
       marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
+      transform: transform,
       padding: "0",
       borderRadius: "15px",
     },
@@ -33,7 +39,7 @@ const ModalWrapper = ({ children, modalIsOpen, onCloseModal }) => {
             <use href={`${sprite}#icon-close`}></use>
           </svg>
         </button>
-        {children}
+        <div className={css.scrollContainer}>{children}</div>
       </div>
     </Modal>
   );

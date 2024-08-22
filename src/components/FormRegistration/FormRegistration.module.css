@@ -1,5 +1,8 @@
-.form {
+.container {
   width: 288px;
+}
+
+.form {
   display: flex;
   flex-direction: column;
 }
@@ -11,7 +14,7 @@
   margin-bottom: 20px;
 }
 
-.container {
+.formContainer {
   margin: 40px 0;
   display: flex;
   flex-direction: column;
@@ -98,7 +101,7 @@ input[type="password"]::-ms-clear {
 }
 
 @media screen and (min-width: 768px) and (max-width: 1439px) {
-  .form {
+  .container {
     width: 400px;
   }
 
@@ -108,7 +111,7 @@ input[type="password"]::-ms-clear {
 }
 
 @media screen and (min-width: 1440px) {
-  .form {
+  .container {
     width: 438px;
   }
 

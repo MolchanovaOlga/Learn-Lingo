@@ -35,64 +35,66 @@ const FormLogIn = () => {
     console.log(data);
   };
   return (
-    <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
-      <h3 className={css.title}>Log In</h3>
+    <div className={css.container}>
+      <h2 className={css.title}>Log In</h2>
       <p>
         Welcome back! Please enter your credentials to access your account and
         continue your search for an teacher.
       </p>
-      <div className={css.container}>
-        <label className={css.label}>
-          <input
-            className={css.input}
-            name="email"
-            type="email"
-            placeholder="Email"
-            {...register("email", { required: true })}
-          />
-          {errors.email && (
-            <div className={css.errorContainer}>
-              <span className={css.errorMessage}>{errors.email.message}</span>
-            </div>
-          )}
-        </label>
-        <label className={css.label}>
-          <input
-            className={css.input}
-            name="password"
-            type={isVisible ? "text" : "password"}
-            placeholder="Password"
-            {...register("password", {
-              required: true,
-              minLength: 6,
-              maxLength: 50,
-            })}
-          />
-          {errors.password && (
-            <div className={css.errorContainer}>
-              <span className={css.errorMessage}>
-                {errors.password.message}
-              </span>
-            </div>
-          )}
+      <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
+        <div className={css.formContainer}>
+          <label className={css.label}>
+            <input
+              className={css.input}
+              name="email"
+              type="email"
+              placeholder="Email"
+              {...register("email", { required: true })}
+            />
+            {errors.email && (
+              <div className={css.errorContainer}>
+                <span className={css.errorMessage}>{errors.email.message}</span>
+              </div>
+            )}
+          </label>
+          <label className={css.label}>
+            <input
+              className={css.input}
+              name="password"
+              type={isVisible ? "text" : "password"}
+              placeholder="Password"
+              {...register("password", {
+                required: true,
+                minLength: 6,
+                maxLength: 50,
+              })}
+            />
+            {errors.password && (
+              <div className={css.errorContainer}>
+                <span className={css.errorMessage}>
+                  {errors.password.message}
+                </span>
+              </div>
+            )}
 
-          <button
-            type="button"
-            className={css.eyeBtn}
-            onClick={() => setIsVisible(!isVisible)}
-          >
-            <svg className={css.iconEyePassword} width="20" height="20">
-              <use
-                href={`${sprite}#icon-${isVisible ? "eye" : "close-eye"}`}
-              ></use>
-            </svg>
-          </button>
-        </label>
-      </div>
-      <button className={css.logInBtn} type="submit">
-        Log In
-      </button>
-    </form>
+            <button
+              type="button"
+              className={css.eyeBtn}
+              onClick={() => setIsVisible(!isVisible)}
+            >
+              <svg className={css.iconEyePassword} width="20" height="20">
+                <use
+                  href={`${sprite}#icon-${isVisible ? "eye" : "close-eye"}`}
+                ></use>
+              </svg>
+            </button>
+          </label>
+        </div>
+        <button className={css.logInBtn} type="submit">
+          Log In
+        </button>
+      </form>
+    </div>
   );
 };
 

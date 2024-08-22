@@ -2,7 +2,7 @@
   padding: 28px 16px;
   position: relative;
   background-color: var(--white);
-  max-height: 90vh;
+  max-height: 98vh;
   overflow: hidden;
 }
 
@@ -25,6 +25,23 @@
 .closeBtn:hover,
 .closeBtn:focus {
   scale: 1.15;
+}
+
+.scrollContainer {
+  max-height: 85vh;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.scrollContainer::-webkit-scrollbar {
+  background-color: var(--main-white-color);
+  width: 6px;
+}
+
+.scrollContainer::-webkit-scrollbar-thumb {
+  background-color: rgba(18, 20, 23, 0.1);
+  height: 242px;
+  border-radius: 30px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1439px) {
