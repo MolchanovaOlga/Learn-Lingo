@@ -3,7 +3,6 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 
-import RadioList from "../RadioList/RadioList";
 import css from "./FormBookTrialLesson.module.css";
 
 const schema = yup
