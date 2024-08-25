@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useState } from "react";
 
 import css from "./FormBookTrialLesson.module.css";
+import defaultImage from "../../assets/avatar.webp";
 
 const schema = yup
   .object({
@@ -26,7 +26,9 @@ const schema = yup
   })
   .required();
 
-const FormBookTrialLesson = () => {
+const FormBookTrialLesson = ({ name, surname, avatar }) => {
+  const defaultImg = `${defaultImage}`;
+
   const {
     register,
     handleSubmit,
@@ -48,12 +50,16 @@ const FormBookTrialLesson = () => {
       </p>
       <div className={css.teacherContainer}>
         <div className={css.imgContainer}>
-          <div className={css.img}></div>
+          <img
+            className={css.img}
+            src={avatar ? avatar : defaultImg}
+            alt={`${name + " " + surname} avatar`}
+          />
         </div>
         <div className={css.contentContainer}>
           <h4 className={css.teacherTitle}>Your teacher</h4>
           <div className={css.ratingContainer}>
-            <p className={css.nameText}>Jane Smith</p>
+            <p className={css.nameText}>{name + " " + surname}</p>
           </div>
         </div>
       </div>

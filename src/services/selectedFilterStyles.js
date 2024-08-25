@@ -1,3 +1,25 @@
+export const languages = [
+  { value: "French", label: "French" },
+  { value: "English", label: "English" },
+  { value: "German", label: "German" },
+  { value: "Ukrainian", label: "Ukrainian" },
+  { value: "Polish", label: "Polish" },
+];
+
+export const levels = [
+  { value: "A1 Beginner", label: "A1 Beginner" },
+  { value: "A2 Elementary", label: "A2 Elementary" },
+  { value: "B1 Intermediate", label: "B1 Intermediate" },
+  { value: "B2 Upper-Intermediate", label: "B2 Upper-Intermediate" },
+];
+
+export const price = [
+  { value: "10", label: "10" },
+  { value: "20", label: "20" },
+  { value: "30", label: "30" },
+  { value: "40", label: "40" },
+];
+
 export const customStyles = {
   container: (provided) => ({
     ...provided,
@@ -176,9 +198,6 @@ export const customThemeStyles = {
     ...provided,
     ...dotInInput("#ccc"),
     color: "transparent",
-    fontSize: "10px",
-    fontWeight: "500",
-    lineHeight: "1.1",
     padding: "0",
     margin: "0",
   }),

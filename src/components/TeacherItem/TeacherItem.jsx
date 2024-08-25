@@ -6,10 +6,29 @@ import LevelItem from "../LevelItem/LevelItem";
 import scrollController from "../../services/noScroll";
 import css from "./TeacherItem.module.css";
 import sprite from "../../assets/sprite.svg";
+import defaultImage from "../../assets/avatar.webp";
 
-const TeacherItem = () => {
+const TeacherItem = ({ teachersDetails, active }) => {
+  const {
+    avatar_url,
+    name,
+    surname,
+    lessons_done,
+    rating,
+    price_per_hour,
+    languages,
+    lesson_info,
+    conditions,
+    experience,
+    reviews,
+    levels,
+  } = teachersDetails;
+
+  const defaultImg = `${defaultImage}`;
+
   const [readMore, setReadMore] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isActive, setIsActive] = useState(active);
 
   function openModal() {
     setIsOpen(true);
@@ -25,14 +44,32 @@ const TeacherItem = () => {
     setReadMore(true);
   }
 
+  function handleClick() {
+    if (isActive) {
+      setIsActive(false);
+    } else {
+      setIsActive(true);
+    }
+  }
+
   return (
     <>
       {isOpen && (
-        <ModalBookTrialLesson onCloseModal={closeModal} isOpen={isOpen} />
+        <ModalBookTrialLesson
+          onCloseModal={closeModal}
+          isOpen={isOpen}
+          name={name}
+          surname={surname}
+          avatar={avatar_url}
+        />
       )}
       <div className={css.container}>
         <div className={css.imgContainer}>
-          <div className={css.img}></div>
+          <img
+            className={css.img}
+            src={avatar_url ? avatar_url : defaultImg}
+            alt={`${name + " " + surname} avatar`}
+          />
           <div className={css.greenCircle}></div>
         </div>
         <div className={css.contentContainer}>
@@ -47,47 +84,48 @@ const TeacherItem = () => {
                   <p className={css.statisticText}>Lessons online</p>
                 </div>
                 <div className={css.lessonsDoneContainer}>
-                  <p className={css.statisticText}>Lessons done: 1098</p>
+                  <p className={css.statisticText}>
+                    Lessons done: {lessons_done}
+                  </p>
                 </div>
                 <div className={css.ratingContainer}>
                   <svg className={css.iconStar} width="16" height="16">
                     <use href={`${sprite}#icon-star`}></use>
                   </svg>
-                  <p className={css.statisticText}>Rating: 4.8</p>
+                  <p className={css.statisticText}>Rating: {rating}</p>
                 </div>
                 <div className={css.priceContainer}>
                   <p className={css.statisticText}>
-                    Price / 1 hour: <span className={css.selectPrice}>30$</span>
+                    Price / 1 hour:{" "}
+                    <span className={css.selectPrice}>{price_per_hour}$</span>
                   </p>
                 </div>
               </div>
             </div>
-            <button className={css.heartBtn}>
-              <svg className={css.iconHeart} width="26" height="26">
+            <button className={css.heartBtn} onClick={handleClick}>
+              <svg
+                className={isActive ? css.favoritHeatIcon : css.iconHeart}
+                width="26"
+                height="26"
+              >
                 <use href={`${sprite}#icon-heart`}></use>
               </svg>
             </button>
           </div>
 
-          <h2 className={css.title}>Jane Smith</h2>
+          <h2 className={css.title}>{name + " " + surname}</h2>
           <div className={css.detailsContainer}>
             <div className={css.detailsItemContainer}>
               <h3 className={css.detailsTitle}>Speaks:</h3>
-              <p className={css.underlinedText}> German, French</p>
+              <p className={css.underlinedText}> {languages.join(", ")}</p>
             </div>
             <div className={css.detailsItemContainer}>
               <h3 className={css.detailsTitle}>Lesson Info:</h3>
-              <p className={css.text}>
-                Lessons are structured to cover grammar, vocabulary, and
-                practical usage of the language.
-              </p>
+              <p className={css.text}>{lesson_info}</p>
             </div>
             <div className={css.detailsItemContainer}>
               <h3 className={css.detailsTitle}>Conditions:</h3>
-              <p className={css.text}>
-                Welcomes both adult learners and teenagers (13 years and above).
-                Provides personalized study plans
-              </p>
+              <p className={css.text}>{conditions.join(" ")}</p>
             </div>
           </div>
 
@@ -103,38 +141,32 @@ const TeacherItem = () => {
 
           {readMore && (
             <div className={css.readMoreContainer}>
-              <p className={css.experienceText}>
-                Jane is an experienced and dedicated language teacher
-                specializing in German and French. She holds a Bachelor's degree
-                in German Studies and a Master's degree in French Literature.
-                Her passion for languages and teaching has driven her to become
-                a highly proficient and knowledgeable instructor. With over 10
-                years of teaching experience, Jane has helped numerous students
-                of various backgrounds and proficiency levels achieve their
-                language learning goals. She is skilled at adapting her teaching
-                methods to suit the needs and learning styles of her students,
-                ensuring that they feel supported and motivated throughout their
-                language journey.
-              </p>
-              <ul className={css.reviewsList}>
-                <li>
-                  <ReviewItem />
-                </li>
-                <li>
-                  <ReviewItem />
-                </li>
-              </ul>
+              <p className={css.experienceText}>{experience}</p>
+              {reviews && reviews.length > 0 && (
+                <ul className={css.reviewsList}>
+                  {reviews.map((item, index) => {
+                    return (
+                      <li key={index}>
+                        <ReviewItem reviewsDetails={item} />
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
             </div>
           )}
 
-          <ul className={css.levelsList}>
-            <li>
-              <LevelItem />
-            </li>
-            <li>
-              <LevelItem />
-            </li>
-          </ul>
+          {levels && levels.length > 0 && (
+            <ul className={css.levelsList}>
+              {levels.map((item, index) => {
+                return (
+                  <li key={index}>
+                    <LevelItem level={item} />
+                  </li>
+                );
+              })}
+            </ul>
+          )}
 
           {readMore && (
             <button

@@ -1,7 +1,7 @@
 import FormBookTrialLesson from "../FormBookTrialLesson/FormBookTrialLesson";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
 
-const ModalLoginIn = ({ onCloseModal, isOpen }) => {
+const ModalLoginIn = ({ onCloseModal, isOpen, name, surname, avatar }) => {
   return (
     <ModalWrapper
       modalIsOpen={isOpen}
@@ -9,7 +9,7 @@ const ModalLoginIn = ({ onCloseModal, isOpen }) => {
       top="1%"
       transform="translate(-50%, 0)"
     >
-      <FormBookTrialLesson />
+      <FormBookTrialLesson name={name} surname={surname} avatar={avatar} />
     </ModalWrapper>
   );
 };

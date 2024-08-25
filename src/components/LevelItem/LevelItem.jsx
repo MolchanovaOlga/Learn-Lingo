@@ -1,9 +1,9 @@
 import css from "./LevelItem.module.css";
 
-const LevelItem = () => {
+const LevelItem = ({ level }) => {
   return (
     <div className={css.levelItemContainer}>
-      <p className={css.text}>#A1 Beginner</p>
+      <p className={css.text}>#{level}</p>
     </div>
   );
 };

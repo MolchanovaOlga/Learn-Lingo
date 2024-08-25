@@ -1,30 +1,13 @@
 import { useState } from "react";
 import Select from "react-select";
 
-import { customStyles } from "../../services/selectedFilterStyles";
+import {
+  customStyles,
+  languages,
+  levels,
+  price,
+} from "../../services/selectedFilterStyles";
 import css from "./FilteredMenu.module.css";
-
-const languages = [
-  { value: "French", label: "French" },
-  { value: "English", label: "English" },
-  { value: "German", label: "German" },
-  { value: "Ukrainian", label: "Ukrainian" },
-  { value: "Polish", label: "Polish" },
-];
-
-const levels = [
-  { value: "A1 Beginner", label: "A1 Beginner" },
-  { value: "A2 Elementary", label: "A2 Elementary" },
-  { value: "B1 Intermediate", label: "B1 Intermediate" },
-  { value: "B2 Upper-Intermediate", label: "B2 Upper-Intermediate" },
-];
-
-const price = [
-  { value: "10", label: "10" },
-  { value: "20", label: "20" },
-  { value: "30", label: "30" },
-  { value: "40", label: "40" },
-];
 
 const FilteredMenu = () => {
   const [selectedLangOption, setSelectedLangOption] = useState(null);
@@ -57,6 +40,13 @@ const FilteredMenu = () => {
               ...provided,
               width: "198px",
             }),
+            menu: (provided) => ({
+              ...provided,
+              width: "198px",
+              padding: "14px 18px",
+              borderRadius: "12px",
+              boxShadow: "0 8px 16px rgba(18, 20, 23, 0.2)",
+            }),
           }}
           placeholder={levels[0].label}
         />
@@ -74,6 +64,14 @@ const FilteredMenu = () => {
             container: (provided) => ({
               ...provided,
               width: "124px",
+            }),
+            menu: (provided) => ({
+              ...provided,
+              width: "124px",
+              padding: "14px 18px",
+              borderRadius: "12px",
+              border: "none",
+              boxShadow: "0 8px 16px rgba(18, 20, 23, 0.2)",
             }),
           }}
           placeholder={price[0].label}
