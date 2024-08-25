@@ -19,7 +19,7 @@ const TheachersPageContent = () => {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
 
-  const teachers = useSelector(selectTeachersItems).slice(4);
+  const teachers = useSelector(selectTeachersItems);
   const lastKey = useSelector(selectTeachersLastKey);
 
   const perPage = 4;
@@ -45,7 +45,6 @@ const TheachersPageContent = () => {
     if (lastKey) {
       setPage(page + 1);
       dispatch(fetchTeachers(Number(lastKey) + 1));
-      console.log(hasMore);
     }
   };
 
