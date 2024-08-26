@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_API_KEY,
+  apiKey: "AIzaSyDLYZmRLr0imJmnsHgCpdjJpMi6-gqPi90",
   authDomain: "learnlingo-24c98.firebaseapp.com",
   databaseURL: "https://learnlingo-24c98-default-rtdb.firebaseio.com",
   projectId: "learnlingo-24c98",
