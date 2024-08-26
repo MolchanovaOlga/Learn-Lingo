@@ -152,6 +152,7 @@ export const customThemeStyles = {
     borderRadius: "12px",
     marginLeft: "8px",
     position: "relative",
+    marginLeft: "16px",
   }),
 
   control: (provided) => ({

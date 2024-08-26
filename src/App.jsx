@@ -1,6 +1,9 @@
 import { Suspense, lazy } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
+import { refreshUser } from "./redux/auth/operations";
 import Layout from "./components/Layout/Layout";
 import css from "./App.module.css";
 import Container from "./components/Container/Container";
@@ -12,6 +15,7 @@ const NotFoundPage = lazy(() => import("./pages/NotFound"));
 
 function App() {
   const location = useLocation();
+  const dispatch = useDispatch();
 
   const getBackgroundClass = () => {
     if (
@@ -23,6 +27,10 @@ function App() {
       return css.background;
     }
   };
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
 
   return (
     <div className={getBackgroundClass()}>

@@ -2,7 +2,9 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
+import { loginUser } from "../../redux/auth/operations";
 import sprite from "../../assets/sprite.svg";
 import css from "./FormLogIn.module.css";
 
@@ -20,19 +22,24 @@ const schema = yup
   })
   .required();
 
-const FormLogIn = () => {
+const FormLogIn = ({ onCloseModal }) => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   });
 
+  const dispatch = useDispatch();
+
   const [isVisible, setIsVisible] = useState(false);
 
   const onSubmit = (data) => {
-    console.log(data);
+    dispatch(loginUser(data));
+    reset();
+    onCloseModal();
   };
   return (
     <div className={css.container}>

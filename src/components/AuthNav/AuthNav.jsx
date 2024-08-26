@@ -73,6 +73,7 @@ const AuthNav = () => {
           Registration
         </button>
       </div>
+
       <div className={css.containerMenu}>
         <button type="button" className={css.btnAuthNav} onClick={openMenu}>
           <svg className={css.iconThreeDots} width="20" height="20">

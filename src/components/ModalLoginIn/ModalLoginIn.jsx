@@ -4,7 +4,7 @@ import ModalWrapper from "../ModalWrapper/ModalWrapper";
 const ModalLoginIn = ({ onCloseModal, isOpen }) => {
   return (
     <ModalWrapper modalIsOpen={isOpen} onCloseModal={onCloseModal}>
-      <FormLoginIn />
+      <FormLoginIn onCloseModal={onCloseModal} />
     </ModalWrapper>
   );
 };
