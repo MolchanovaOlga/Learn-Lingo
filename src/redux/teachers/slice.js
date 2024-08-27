@@ -16,10 +16,20 @@ const teachersSlice = createSlice({
   initialState: {
     items: [],
     lastKey: null,
+    favorites: [],
     loading: false,
     error: null,
   },
-  reducers: {},
+  reducers: {
+    addTeacher(state, action) {
+      state.favorites.push(action.payload);
+    },
+    deleteTeacher(state, action) {
+      state.favorites = state.favorites.filter(
+        (teacher) => teacher.id !== action.payload
+      );
+    },
+  },
   extraReducers: (builder) => {
     builder
 
@@ -35,3 +45,4 @@ const teachersSlice = createSlice({
 });
 
 export const teachersReducer = teachersSlice.reducer;
+export const { addTeacher, deleteTeacher } = teachersSlice.actions;

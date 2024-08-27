@@ -7,6 +7,7 @@ import { refreshUser } from "./redux/auth/operations";
 import Layout from "./components/Layout/Layout";
 import css from "./App.module.css";
 import Container from "./components/Container/Container";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 const HomePage = lazy(() => import("./pages/Home"));
 const TeachersPage = lazy(() => import("./pages/Teachers"));
@@ -41,7 +42,15 @@ function App() {
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/teachers" element={<TeachersPage />} />
-                <Route path="/favorites" element={<FavoritesPage />} />
+                <Route
+                  path="/favorites"
+                  element={
+                    <PrivateRoute
+                      redirectTo="/"
+                      component={<FavoritesPage />}
+                    />
+                  }
+                />
                 <Route path="*" element={<NotFoundPage replace />} />
               </Routes>
             </main>

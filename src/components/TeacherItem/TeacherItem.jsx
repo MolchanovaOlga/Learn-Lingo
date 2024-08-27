@@ -1,5 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
+import { addTeacher, deleteTeacher } from "../../redux/teachers/slice";
+import { selectAuthIsLoggedIn } from "../../redux/auth/selectors";
+import { selectFavoriteTeachers } from "../../redux/teachers/selectors";
 import ModalBookTrialLesson from "../../components/ModalBookTrialLesson/ModalBookTrialLesson";
 import ReviewItem from "../ReviewItem/ReviewItem";
 import LevelItem from "../LevelItem/LevelItem";
@@ -10,6 +14,7 @@ import defaultImage from "../../assets/avatar.webp";
 
 const TeacherItem = ({ teachersDetails, active }) => {
   const {
+    id,
     avatar_url,
     name,
     surname,
@@ -30,6 +35,10 @@ const TeacherItem = ({ teachersDetails, active }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isActive, setIsActive] = useState(active);
 
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector(selectAuthIsLoggedIn);
+  const favorites = useSelector(selectFavoriteTeachers);
+
   function openModal() {
     setIsOpen(true);
     scrollController.disabledScroll();
@@ -40,16 +49,29 @@ const TeacherItem = ({ teachersDetails, active }) => {
     scrollController.enabledScroll();
   }
 
+  useEffect(() => {
+    if (isLoggedIn) {
+      setIsActive(favorites.some((item) => item.id === id));
+    } else {
+      setIsActive(false);
+    }
+  }, [favorites, id, isLoggedIn]);
+
   function handleClickReadMore() {
     setReadMore(true);
   }
 
   function handleClick() {
-    if (isActive) {
-      setIsActive(false);
-    } else {
-      setIsActive(true);
+    if (isLoggedIn) {
+      if (isActive) {
+        dispatch(deleteTeacher(id));
+        setIsActive(false);
+      } else {
+        dispatch(addTeacher(teachersDetails));
+        setIsActive(true);
+      }
     }
+    return;
   }
 
   return (
