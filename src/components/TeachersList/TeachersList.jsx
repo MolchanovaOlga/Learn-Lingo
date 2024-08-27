@@ -15,7 +15,9 @@ const TeachersList = ({ list, active }) => {
           })}
         </ul>
       ) : (
-        <p className={css.text}>There are no adverts yet.</p>
+        <div className={css.noListContainer}>
+          <p className={css.text}>There are no teachers yet.</p>
+        </div>
       )}
     </div>
   );
