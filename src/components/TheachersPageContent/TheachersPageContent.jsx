@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
+import Loader from "../Loader/Loader";
 import FilteredMenu from "../FilteredMenu/FilteredMenu";
 import TeachersList from "../TeachersList/TeachersList";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
@@ -10,6 +11,7 @@ import { getAmountTeachers } from "../../services/apiTeachers";
 import {
   selectTeachersItems,
   selectTeachersLastKey,
+  selectTeachersLoading,
 } from "../../redux/teachers/selectors";
 import css from "./TheachersPageContent.module.css";
 
@@ -21,6 +23,7 @@ const TheachersPageContent = () => {
 
   const teachers = useSelector(selectTeachersItems);
   const lastKey = useSelector(selectTeachersLastKey);
+  const loader = useSelector(selectTeachersLoading);
 
   const perPage = 4;
 
@@ -53,9 +56,10 @@ const TheachersPageContent = () => {
       <div className={css.container}>
         <div className={css.listContainer}>
           <FilteredMenu />
-          <TeachersList list={teachers} active={false} />
+          {<TeachersList list={teachers} active={false} />}
+          {loader && <Loader />}
         </div>
-        {hasMore && teachers.length > 0 && (
+        {!loader && hasMore && teachers.length > 0 && (
           <LoadMoreBtn handleClick={handleLoadMore} />
         )}
       </div>

@@ -3,6 +3,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
+import Loader from "./components/Loader/Loader";
 import { refreshUser } from "./redux/auth/operations";
 import Layout from "./components/Layout/Layout";
 import css from "./App.module.css";
@@ -36,7 +37,7 @@ function App() {
   return (
     <div className={getBackgroundClass()}>
       <Container>
-        <Suspense>
+        <Suspense fallback={<Loader />}>
           <Layout>
             <main>
               <Routes>

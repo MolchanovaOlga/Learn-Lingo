@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
+import Loader from "../Loader/Loader";
 import {
   selectTeachersLoading,
   selectFavoriteTeachers,
@@ -33,8 +34,9 @@ const FavoritesPageContent = () => {
         <div className={css.listContainer}>
           <FilteredMenu />
           <TeachersList list={favoriteTeachers} active={true} />
+          {loader && <Loader />}
         </div>
-        {favoriteTeachers.length < favorites.length && (
+        {!loader && favoriteTeachers.length < favorites.length && (
           <LoadMoreBtn handleClick={handleLoadMore} />
         )}
       </div>
