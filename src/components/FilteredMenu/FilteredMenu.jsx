@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Select from "react-select";
 
 import {
@@ -9,18 +8,21 @@ import {
 } from "../../services/selectedFilterStyles";
 import css from "./FilteredMenu.module.css";
 
-const FilteredMenu = () => {
-  const [selectedLangOption, setSelectedLangOption] = useState(null);
-  const [selectedLevelOption, setSelectedLevelOption] = useState(null);
-  const [selectedPriceOption, setSelectedPriceOption] = useState(null);
-
+const FilteredMenu = ({
+  langOption,
+  levelOption,
+  priceOption,
+  handleLangChange,
+  handleLevelChange,
+  handlePriceChange,
+}) => {
   return (
     <ul className={css.filteredList}>
       <li className={css.filteredItem}>
         <p className={css.text}>Languages</p>
         <Select
-          defaultValue={selectedLangOption}
-          onChange={setSelectedLangOption}
+          value={langOption}
+          onChange={handleLangChange}
           options={languages}
           className={css.select}
           styles={customStyles}
@@ -30,8 +32,8 @@ const FilteredMenu = () => {
       <li className={css.filteredItem}>
         <p className={css.text}>Level of knowledge</p>
         <Select
-          defaultValue={selectedLevelOption}
-          onChange={setSelectedLevelOption}
+          value={levelOption}
+          onChange={handleLevelChange}
           options={levels}
           className={css.select}
           styles={{
@@ -55,8 +57,8 @@ const FilteredMenu = () => {
       <li className={css.filteredItem}>
         <p className={css.text}>Price</p>
         <Select
-          defaultValue={selectedPriceOption}
-          onChange={setSelectedPriceOption}
+          value={priceOption}
+          onChange={handlePriceChange}
           options={price}
           className={css.select}
           styles={{

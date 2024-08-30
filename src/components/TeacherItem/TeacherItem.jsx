@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { addTeacher, deleteTeacher } from "../../redux/teachers/slice";
+import { addTeacher, deleteTeacher } from "../../redux/favorites/slice";
 import { selectAuthIsLoggedIn } from "../../redux/auth/selectors";
-import { selectFavoriteTeachers } from "../../redux/teachers/selectors";
+import { selectFavoriteTeachers } from "../../redux/favorites/selectors";
 import ModalBookTrialLesson from "../../components/ModalBookTrialLesson/ModalBookTrialLesson";
 import ReviewItem from "../ReviewItem/ReviewItem";
 import LevelItem from "../LevelItem/LevelItem";

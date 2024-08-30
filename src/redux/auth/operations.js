@@ -70,6 +70,7 @@ export const refreshUser = createAsyncThunk(
               email: user.email,
               name: user.displayName,
             };
+
             resolve(serializedUser);
           } else {
             reject(new Error("User not authenticated"));

@@ -1,5 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchTeachers } from "./operations";
+import { fetchAllTeachers, fetchTeachersForPagination } from "./operations";
+
+const initialState = {
+  items: [],
+  lastKey: null,
+  loading: false,
+  error: null,
+
+  selectedLangOption: null,
+  selectedLevelOption: null,
+  selectedPriceOption: null,
+  filteredItems: [],
+};
 
 const handlePending = (state) => {
   state.loading = true;
@@ -13,36 +25,42 @@ const handleRejected = (state, action) => {
 
 const teachersSlice = createSlice({
   name: "teachers",
-  initialState: {
-    items: [],
-    lastKey: null,
-    favorites: [],
-    loading: false,
-    error: null,
-  },
+  initialState,
   reducers: {
-    addTeacher(state, action) {
-      state.favorites.push(action.payload);
+    setSelectedLangOption(state, action) {
+      state.selectedLangOption = action.payload;
     },
-    deleteTeacher(state, action) {
-      state.favorites = state.favorites.filter(
-        (teacher) => teacher.id !== action.payload
-      );
+    setSelectedLevelOption(state, action) {
+      state.selectedLevelOption = action.payload;
+    },
+    setSelectedPriceOption(state, action) {
+      state.selectedPriceOption = action.payload;
     },
   },
   extraReducers: (builder) => {
     builder
 
-      .addCase(fetchTeachers.pending, handlePending)
-      .addCase(fetchTeachers.fulfilled, (state, action) => {
+      .addCase(fetchTeachersForPagination.pending, handlePending)
+      .addCase(fetchTeachersForPagination.fulfilled, (state, action) => {
         state.loading = false;
 
         state.items = [...state.items, ...action.payload];
         state.lastKey = action.payload[action.payload.length - 1].id;
       })
-      .addCase(fetchTeachers.rejected, handleRejected);
+      .addCase(fetchTeachersForPagination.rejected, handleRejected)
+
+      .addCase(fetchAllTeachers.pending, handlePending)
+      .addCase(fetchAllTeachers.fulfilled, (state, action) => {
+        state.loading = false;
+        state.filteredItems = action.payload;
+      })
+      .addCase(fetchAllTeachers.rejected, handleRejected);
   },
 });
 
 export const teachersReducer = teachersSlice.reducer;
-export const { addTeacher, deleteTeacher } = teachersSlice.actions;
+export const {
+  setSelectedLangOption,
+  setSelectedLevelOption,
+  setSelectedPriceOption,
+} = teachersSlice.actions;
