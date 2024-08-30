@@ -6,17 +6,17 @@ export const instance = axios.create({
   baseURL: BASE_URL,
 });
 
-export const getAmountTeachers = async () => {
+export const getAllTeachers = async () => {
   try {
     const results = await instance.get("/teachers.json");
 
-    return results.data.length;
+    return results.data;
   } catch (er) {
     console.log(er);
   }
 };
 
-export const getTeachers = async (lastKey) => {
+export const getTeachersForPaginations = async (lastKey) => {
   try {
     const params = !lastKey
       ? `?orderBy="$key"&limitToFirst=4`
@@ -27,5 +27,19 @@ export const getTeachers = async (lastKey) => {
     return results.data;
   } catch (er) {
     console.log(er);
+  }
+};
+
+export const getFilteredTeachersByPrice = async (price) => {
+  try {
+    if (price) {
+      let params = "?limitToFirst=4";
+      params += `&orderBy="price_per_hour"&equalTo=${Number(price.value)}`;
+
+      const results = await instance.get(`/teachers.json${params}`);
+      return results.data;
+    }
+  } catch (err) {
+    console.log(err);
   }
 };

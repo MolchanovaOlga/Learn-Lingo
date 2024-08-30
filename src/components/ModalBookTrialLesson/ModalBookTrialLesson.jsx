@@ -9,7 +9,12 @@ const ModalLoginIn = ({ onCloseModal, isOpen, name, surname, avatar }) => {
       top="1%"
       transform="translate(-50%, 0)"
     >
-      <FormBookTrialLesson name={name} surname={surname} avatar={avatar} />
+      <FormBookTrialLesson
+        name={name}
+        surname={surname}
+        avatar={avatar}
+        onCloseModal={onCloseModal}
+      />
     </ModalWrapper>
   );
 };

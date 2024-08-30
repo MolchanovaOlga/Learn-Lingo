@@ -26,7 +26,7 @@ const schema = yup
   })
   .required();
 
-const FormBookTrialLesson = ({ name, surname, avatar }) => {
+const FormBookTrialLesson = ({ name, surname, avatar, onCloseModal }) => {
   const defaultImg = `${defaultImage}`;
 
   const {
@@ -39,6 +39,7 @@ const FormBookTrialLesson = ({ name, surname, avatar }) => {
 
   const onSubmit = (data) => {
     console.log(data);
+    onCloseModal();
   };
 
   return (

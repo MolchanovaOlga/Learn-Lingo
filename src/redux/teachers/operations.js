@@ -1,11 +1,30 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { getTeachers } from "../../services/apiTeachers";
+import { getTeachersForPaginations } from "../../services/apiTeachers";
+import { getAllTeachers } from "../../services/apiTeachers";
 
-export const fetchTeachers = createAsyncThunk(
-  "teachers/fetchTeachers",
+export const fetchAllTeachers = createAsyncThunk(
+  "allTeachers/fetchAllTeachers",
+  async (_, thunkAPI) => {
+    try {
+      const data = await getAllTeachers();
+
+      const items = Object.entries(data).map(([key, value]) => ({
+        id: key,
+        ...value,
+      }));
+      return items;
+    } catch (err) {
+      console.log(err);
+      return thunkAPI.rejectWithValue(err.message);
+    }
+  }
+);
+
+export const fetchTeachersForPagination = createAsyncThunk(
+  "teachers/fetchTeachersForPagination",
   async (lastKey, thunkAPI) => {
     try {
-      const data = await getTeachers(lastKey);
+      const data = await getTeachersForPaginations(lastKey);
 
       const items = Object.entries(data)
         .map(([key, value]) => ({
