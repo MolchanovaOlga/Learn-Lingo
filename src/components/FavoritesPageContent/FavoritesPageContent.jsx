@@ -106,7 +106,11 @@ const FavoritesPageContent = () => {
             handleLevelChange={handleLevelChange}
             handlePriceChange={handlePriceChange}
           />
-          <TeachersList list={listToRender} active={true} />
+          <TeachersList
+            list={listToRender}
+            active={true}
+            levelOption={levelOption}
+          />
         </div>
 
         {noSelectedFilters && hasMore && (

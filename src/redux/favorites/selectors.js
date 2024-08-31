@@ -29,7 +29,8 @@ export const selectFilteredFavoritesTeachers = createSelector(
         : true;
 
       const priceMatch = selectedPriceOption
-        ? Number(teacher.price_per_hour) === Number(selectedPriceOption.value)
+        ? Math.round(Number(teacher.price_per_hour) / 10) * 10 ===
+          Number(selectedPriceOption.value)
         : true;
 
       return languageMatch && levelMatch && priceMatch;

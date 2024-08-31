@@ -128,7 +128,13 @@ const TheachersPageContent = () => {
             handleLevelChange={handleLevelChange}
             handlePriceChange={handlePriceChange}
           />
-          {<TeachersList list={listToRender} active={false} />}
+          {
+            <TeachersList
+              list={listToRender}
+              active={false}
+              levelOption={levelOption}
+            />
+          }
           {loader && <Loader />}
         </div>
         {!loader && noSelectedFilters && hasMore && (

@@ -4,6 +4,13 @@
   padding: 8px 12px;
 }
 
+.levelSelectedItemContainer {
+  border: none;
+  background-color: var(--main-color);
+  border-radius: 35px;
+  padding: 8px 12px;
+}
+
 .text {
   font-size: 14px;
   font-weight: 500;

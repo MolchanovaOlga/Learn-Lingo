@@ -12,7 +12,7 @@ import css from "./TeacherItem.module.css";
 import sprite from "../../assets/sprite.svg";
 import defaultImage from "../../assets/avatar.webp";
 
-const TeacherItem = ({ teachersDetails, active }) => {
+const TeacherItem = ({ teachersDetails, active, levelOption }) => {
   const {
     id,
     avatar_url,
@@ -183,7 +183,12 @@ const TeacherItem = ({ teachersDetails, active }) => {
               {levels.map((item, index) => {
                 return (
                   <li key={index}>
-                    <LevelItem level={item} />
+                    <LevelItem
+                      level={item}
+                      isSelect={
+                        levelOption && item === levelOption.value ? true : false
+                      }
+                    />
                   </li>
                 );
               })}
