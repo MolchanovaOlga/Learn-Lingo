@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import toast from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 import { addTeacher, deleteTeacher } from "../../redux/favorites/slice";
 import { selectAuthIsLoggedIn } from "../../redux/auth/selectors";
@@ -71,6 +73,16 @@ const TeacherItem = ({ teachersDetails, active, levelOption }) => {
         setIsActive(true);
       }
     }
+    if (!isLoggedIn) {
+      toast("Please log in", {
+        style: {
+          backgroundColor: "var(--main-color)",
+          color: "#fff",
+          padding: "16px",
+          fontSize: "18px",
+        },
+      });
+    }
     return;
   }
 
@@ -133,6 +145,7 @@ const TeacherItem = ({ teachersDetails, active, levelOption }) => {
                 <use href={`${sprite}#icon-heart`}></use>
               </svg>
             </button>
+            <Toaster />
           </div>
 
           <h2 className={css.title}>{name + " " + surname}</h2>

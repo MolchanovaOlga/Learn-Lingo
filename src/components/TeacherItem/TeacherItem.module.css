@@ -146,6 +146,11 @@
   transition: fill 200ms linear;
 }
 
+.toastClickHeartBtn {
+  background-color: var(--main-color);
+  color: blue;
+}
+
 /* ------------------------------------details------------------------------------ */
 
 .detailsTitle {
