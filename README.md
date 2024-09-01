@@ -108,10 +108,26 @@ npm start
 - Створіть файл '.env' в кореневій директорії проєкту та додайте такі змінні:
 
 ```
-VITE_MESSAGING_SENDER_ID
-VITE_APP_ID
-VITE_MEASUREMENT_ID
+VITE_API_KEY=<Your API key>;
+VITE_AUTH_DOMAIN=<Authentication domain for Firebase>
+VITE_DATABASE_URL=<URL of your database>;
+VITE_PROJECT_ID=<Your Firebase project ID>
+VITE_STORAGE_BUCKET=<Firebase storage bucket>
+VITE_MESSAGING_SENDER_ID=<Messaging sender ID>;
+VITE_APP_ID=<Your Firebase app ID>
+VITE_MEASUREMENT_ID=<Measurement ID for analytics>;
 ```
+
+- Використайте змінні в файлі ['firebaseConfig'](./src/services/firebaseConfig.js). Наприклад:
+
+  ```
+  const firebaseConfig = {
+  apiKey: import.meta.env.VITE_API_KEY,
+  //...
+  }
+  ```
+
+- Не забудьте додати .env у файл .gitignore, щоб запобігти випадковому коміту конфіденційних даних до репозиторію.
 
 ## Контактна інформація
 
