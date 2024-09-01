@@ -62,7 +62,10 @@ const TheachersPageContent = () => {
     const settingHasMore = async () => {
       const data = await getAllTeachers();
       setHasMore(
-        data.length > 0 && data.length > perPage && page < data.length / perPage
+        data &&
+          data.length > 0 &&
+          data.length > perPage &&
+          page < data.length / perPage
           ? true
           : false
       );
